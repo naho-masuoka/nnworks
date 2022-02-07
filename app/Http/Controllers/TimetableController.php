@@ -46,10 +46,9 @@ class TimetableController extends Controller
     }
 
     public function store(Request $request){
-        $user=Auth::user();
+        
         if($request->btn =='Email作成'){
             $param=[
-                'user'=>$user,
                 'id' => $request->id,
                 'title_id' => $request->title_id,
                 'day' => $request->day,
@@ -113,7 +112,8 @@ class TimetableController extends Controller
         
         $request = decrypt($request->param);
         $title=Title::find($request['title_id'])->name;
-        return view('reply.reply',compact('request','title'));
+        $user=Auth::user();
+        return view('reply.reply',compact('request','title','user'));
     }
     /*
     予約に対しユーザーが予約者に返信する場合のemail送信
