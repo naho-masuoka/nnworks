@@ -121,7 +121,6 @@ if (file_exists(asset('files/'.Auth::user()->sp))) {
         function go_submit(){
             document.Form.submit();
         }
-    }
     </script>
 
 @endsection
