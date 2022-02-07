@@ -16,8 +16,8 @@ class ContactController extends Controller
 {
     
     public function index(Request $request,$user_url){
-        //$url=ltrim(url()->current(), 'http://localhost/home/');
-        $url=ltrim(url()->current(), 'https://nnworks.herokuapp.com/home/');
+        $url=$_SERVER['REQUEST_URI'];
+        $url = str_replace('/home/', '', $url);
         $user= User::where('url', $url)->first();
         
         $today= new Carbon($request->day);
