@@ -23,7 +23,7 @@ if (file_exists(asset('files/'.Auth::user()->sp))) {
     <h3 class="mytitle">Mail作成</h3>
 </div>
 <div class="container">
-    <form action="{{ route('reply_send') }}" method="post" name="Form" onsubmit="return false">                             
+    <form action="{{ route('reply_send') }}" method="post" name="Form" onsubmit="go_submit()">                             
         {{ csrf_field() }}
         <div class="form-group">
             <input type="hidden" name="id" class="form-control" value="{{ $request['id'] }}">
@@ -32,7 +32,7 @@ if (file_exists(asset('files/'.Auth::user()->sp))) {
             <input type="email" name="email" value="{{ $request['email'] }}" class="form-control u-input">
         </div>
         <div class="form-group">
-            <label>開催場所</label><button class="btn btn-cc ml-2" onclick="getaddress()">地図表示</button>
+            <label>開催場所</label><button type="button" class="btn btn-cc ml-2" onclick="getaddress()">地図表示</button>
             <input type="text" name="place" id="place" class="form-control u-input" placeholder="住所" value="{{ $request['place'] }}" >
             <input type="hidden" name="mailmap" id="mailmap" class="form-control" value="{{ $request['mailmap'] }}" >
         </div>
