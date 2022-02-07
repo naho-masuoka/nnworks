@@ -119,7 +119,7 @@ if (file_exists(asset('files/'.Auth::user()->sp))) {
             element.map.value = shop_address;
         }
         function go_submit(){
-            document.modalForm.submit();
+            document.Form.submit();
         }
     }
     </script>
