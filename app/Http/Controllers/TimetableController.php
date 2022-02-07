@@ -46,9 +46,10 @@ class TimetableController extends Controller
     }
 
     public function store(Request $request){
-
+        $user=Auth::user();
         if($request->btn =='Email作成'){
             $param=[
+                'user'=>$user,
                 'id' => $request->id,
                 'title_id' => $request->title_id,
                 'day' => $request->day,
@@ -101,7 +102,7 @@ class TimetableController extends Controller
             $user = User::where('id',$data->user_id)->get();       
             Mail::to($request->email)->send(new Reserve_SendMail($data));
             Mail::to($user[0]->email)->send(new Reserve_User_SendMail($data));
-        return view('reserve.thanks',compact('request'));
+        return view('reserve.thanks',compact('request','user'));
     }
 
     /*
