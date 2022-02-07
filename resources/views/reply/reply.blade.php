@@ -32,7 +32,6 @@ if (file_exists(asset('files/'.Auth::user()->sp))) {
             <input type="email" name="email" value="{{ $request['email'] }}" class="form-control u-input">
         </div>
         <div class="form-group">
-            <label>開催場所</label><button type="button" class="btn btn-cc ml-2" onclick="getaddress()">地図表示</button>
             <input type="text" name="place" id="place" class="form-control u-input" placeholder="住所" value="{{ $request['place'] }}" >
             <input type="hidden" name="mailmap" id="mailmap" class="form-control" value="{{ $request['mailmap'] }}" >
         </div>
@@ -91,33 +90,8 @@ if (file_exists(asset('files/'.Auth::user()->sp))) {
     </form>
     <br><br><br>
 </div>
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBh70WNHgSZDtvTD_p2CAmrchrHXmB0M_I" charset="utf-8"></script>
+
     <script>
-        function getaddress() {
-            let address = document.getElementById("place").value;
-            let element = document.Form;
-            let map = document.getElementById("map");
-            let mailmap = document.getElementById("mailmap");
-            let geocoder = new google.maps.Geocoder();
-    
-    
-            geocoder.geocode(
-            { address: address },
-            function( results, status ){
-                    if( status == google.maps.GeocoderStatus.OK ){
-                        lat = results[ 0 ].geometry.location.lat();
-                        lng = results[ 0 ].geometry.location.lng();
-                        element.mailmap.value = 'https://maps.google.co.jp/maps?q=' + lat + ',' + lng +'&t=p&z=21';
-                    }else{
-                        alert( 'Faild：' + status );
-                    }
-            });
-            let src = map.getAttribute('src');
-            let shop_address="https://www.google.com/maps/embed/v1/place?key=AIzaSyBh70WNHgSZDtvTD_p2CAmrchrHXmB0M_I&q="+ address
-            map.setAttribute('src', shop_address);
-            map.style.height = '200px';           
-            element.map.value = shop_address;
-        }
         function go_submit(){
             document.Form.submit();
         }
