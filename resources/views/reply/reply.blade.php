@@ -23,7 +23,7 @@ if (file_exists(asset('files/'.Auth::user()->sp))) {
     <h3 class="mytitle">Mail作成</h3>
 </div>
 <div class="container">
-    <form action="{{ route('reply_send') }}" method="post" name="Form">                             
+    <form action="{{ route('reply_send') }}" method="post" name="Form" onsubmit="return false">                             
         {{ csrf_field() }}
         <div class="form-group">
             <input type="hidden" name="id" class="form-control" value="{{ $request['id'] }}">
@@ -86,7 +86,7 @@ if (file_exists(asset('files/'.Auth::user()->sp))) {
             <input type="text" name="signature" class="form-control u-input" value="{{ Auth::user()->signature }}">
         </div>
         <div class="form-group">
-            <button type="submit" class="form-control btn-c">送信</button>
+            <button type="submit" class="form-control btn-c" onClick="go_submit()">送信</button>
         </div>    
     </form>
     <br><br><br>
@@ -118,7 +118,10 @@ if (file_exists(asset('files/'.Auth::user()->sp))) {
             map.style.height = '200px';           
             element.map.value = shop_address;
         }
-
+        function go_submit(){
+            document.modalForm.submit();
+        }
+    }
     </script>
 
 @endsection
