@@ -122,7 +122,7 @@ class TimetableController extends Controller
     {
         $tt=Timetable::find($request->id);
         $tt->fill($request->all())->save();
-        
+        $user=Auth::user();
         //mail送信
         $data = $request->all();     
         Mail::to($request->email)->send(new Reply_SendMail($data));
@@ -130,7 +130,7 @@ class TimetableController extends Controller
         $tt=Timetable::find($request->id);
         $tt->mail_flg = $tt->mail_flg+1;
         $tt->save();
-        return view('emails.reply.complete');
+        return view('emails.reply.complete',compact('user'));
     }
     /*
     キャンセルのemail送信
