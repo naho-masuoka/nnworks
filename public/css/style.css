@@ -1,0 +1,200 @@
+
+@charset "UTF-8";
+html {
+	font-size: 62.5%;
+}
+body{
+    font-size: 1.6rem;
+}
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+  }
+
+
+h1 { font-size: 32px; }
+h2 { font-size: 28px; }
+h3 { font-size: 24px; }
+h4 { font-size: 22px; }
+h5 { font-size: 16px; }
+a, p, li{font-size: 16px; }
+span { font-size: 12px; }
+input {
+    font-size: 1.2rem;
+    }  
+.badge-amairo{
+    color: #ffffff;
+    background-color: #2ca9e1;
+    font-size:1.0rem;
+    float:left;
+    margin:2px 2px;
+}
+.badge-amairo:hover{
+    color: white;
+    background-color: #54BAB9;
+}
+.badge-amairo::after{
+    content: "";
+}
+
+.footer a{
+    color:#192f60;
+}
+.btn-c{
+    font-size: 1.6rem;
+    border-radius: 5px;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, .5);
+}
+.btn-cc{
+    background-color:#54BAB9;
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, .5);
+}
+.btn-y{
+    background-color:#54BAB9;
+    color: white;
+    font-size: 1.4rem;
+    border-radius: 5px;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, .5);
+}
+.btn-b{
+    background-color:#6c757d;
+    color:#fff;
+    font-size: 1.4rem;
+    border-radius: 5px;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, .5);
+}
+/* キャンセル */
+.btn-gray{
+    background-color:#b1aeae;
+    color:#fff;
+    font-size: 1.1rem;
+    border-radius: 5px;
+}
+/* 申し込み後 */
+.btn-yellow{
+    background-color:#54BAB9;
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 5px;
+}
+/* 予約空き */
+.btn-blue{
+    background-color:#2ca9e1;
+    color:white;
+    font-size: 1.1rem;
+    border-radius: 5px;
+}
+html{
+        font-size: 62.5%;
+    }
+
+body{
+    font-size:1.6rem;/* 16px*/
+    line-height: 1;
+    width: 100%;
+    height: 100%;
+}
+form{
+    font-size: 1.4rem;
+    }
+
+.u-input {
+        border: none;
+        border-bottom: 2px solid #e9e9e9;
+        color: #666;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1.2em;
+        height: 40px;
+        transition: border-color 0.3s;
+        width: 100%;
+        border-radius:5px;
+        padding-left:10px;
+        
+      }  
+.height-set{
+    min-height: 100vh;/*①高さの最小値*/
+    position: relative;/*②相対位置*/
+  }
+.navbar{
+    background-color:#54BAB9;
+}
+.blog table{
+    line-height: 1.5;
+}
+.lb{
+    font-size:1.2rem;
+}
+.footer{
+    height:50px;
+    background-color:#54BAB9;
+    box-shadow: 0.5rem 0 1rem rgba(0, 0, 0, 0.15) !important;
+}
+.footer a{
+    color: white;
+}
+/* パソコンで見たときは"pc"のclassがついた画像が表示される */
+.pc { 
+    max-height: 300px;
+    display: block !important;
+ }
+.sp { display: none !important; }
+ 
+/* スマートフォンで見たときは"sp"のclassがついた画像が表示される */
+@media only screen and (max-width: 750px) {
+    .pc { display: none !important; }
+    .sp { display: block !important; }
+}
+
+.calendar{            
+    width:100%;
+    height:75vh;
+    table-layout: fixed;
+    background-color:#ffffff;
+    border: 0px none;
+}
+
+label{
+    color:gray;
+}
+.calendar th{
+    width:14%;
+    border: 0px none;
+}
+.calendar td{
+    width:14%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.horiday{
+    font-size:0.5rem;/* 7px*/
+    white-space: nowrap;
+}
+.horiday:after{
+    content: "";
+}
+.mybadge {
+    display: inline-block;
+    font-size: 0.5rem;
+    line-height: 1;
+    white-space: nowrap;
+    vertical-align: baseline;
+    margin:0 0;
+  }
+           
+.day{
+    font-size:1.4rem;
+    font-weight:bold;
+    white-space: nowrap;
+    margin:0 0;
+}
+.day:after{
+    content: "";
+}
+        
+        
+        
+}
+    
