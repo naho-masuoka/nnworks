@@ -18,10 +18,14 @@
     <h1> {{$data['name']}}様</h1>
     <p> {!! nl2br(e($data['body'])) !!}<br>
         またキャンセルは下記よりお願い致します。
-        <a href="http://hhhworks.herokuapp.com/cancel/?param={{ $param }}"><h5>→→→　キャンセル　←←←</h5></a><br>
+        <br><br>
         ※当日のキャンセルは担当者に直接ご連絡下さい。
     </p>
-
+    <div style="text-align:center">
+        <a href="http://wsworks.herokuapp.com/cancel/?param={!! $param !!}" style="background-color:{{$user['bg']}};color:{{$user['font']}};font-size:15px;border-radius:10px;padding:10px 10px;text-decoration:none;">
+        キャンセル
+        </a>        
+    </div>
     <p>
         講座開催場所:<br>
         {{ $data['place'] }}<br>

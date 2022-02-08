@@ -16,7 +16,7 @@
     </div>
     <div class="form-item">
       <label for="email"></label>
-      <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="E-Mail" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" autocomplete="email">
+      <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="E-Mail" required autocomplete="email">
         @error('email')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
@@ -25,7 +25,7 @@
     </div>
     <div class="form-item">
       <label for="password"></label>
-      <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="パスワード" required pattern="(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)[a-zA-Z\d]{8,}" autocomplete="new-password">
+      <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="パスワード" required autocomplete="new-password">
         @error('password')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
@@ -38,10 +38,15 @@
     </div>
     <div class="form-item">
       <label for="url"></label>
-      <input id="url" type="text" class="form-control" name="url" placeholder="ご使用されるurl" required>
+      <input id="url" type="text" class="form-control @error('url') is-invalid @enderror" name="url" placeholder="ご使用されるurl" required>
+      @error('url')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
     </div>
     <div class="button-panel">
-      <input type="submit" class="button" title="Start" value="Start"></input>
+      <input id="btnSubmit" type="submit" class="button" title="Start" value="Start"></input>
     </div>
   </form>
   <div class="form-footer">
@@ -51,4 +56,5 @@
 <div style="text-align:center">            
     <a href="/" style="color:#FB9105"><img class="loimg" src="{{asset('images/home.svg')}}"></a>      
 </div>
+
 @endsection

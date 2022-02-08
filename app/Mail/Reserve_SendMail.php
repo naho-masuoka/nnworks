@@ -12,14 +12,16 @@ class Reserve_SendMail extends Mailable
     use Queueable, SerializesModels;
 
     protected $data;
+    protected $user;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($data)
+    public function __construct($data,$user)
     {    
         $this->data = $data;
+        $this->user = $user;
     }
 
     /**
@@ -38,7 +40,7 @@ class Reserve_SendMail extends Mailable
         ->from('example@example.com',$this->data['signature'])
         ->subject($this->data['name'].'様　受付完了致しました。')
         ->view('emails.reserve.html')
-        ->with(['data'=>$this->data, 'param'=>encrypt($param)]);
+        ->with(['data'=>$this->data,'user'=>$this->user,  'param'=>encrypt($param)]);
                
     }
 }

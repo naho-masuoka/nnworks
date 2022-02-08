@@ -98,9 +98,9 @@ class TimetableController extends Controller
             $tt->fill($request->all())->save();
             //予約完了mail送信
             $data = Timetable::find($request->id); 
-            $user = User::where('id',$data->user_id)->get();       
-            Mail::to($request->email)->send(new Reserve_SendMail($data));
-            Mail::to($user[0]->email)->send(new Reserve_User_SendMail($data));
+            $user = User::where('id',$data->user_id)->first();   
+            Mail::to($request->email)->send(new Reserve_SendMail($data,$user));
+            Mail::to($user->email)->send(new Reserve_User_SendMail($data));
         return view('reserve.thanks',compact('request','user'));
     }
 
@@ -125,7 +125,7 @@ class TimetableController extends Controller
         $user=Auth::user();
         //mail送信
         $data = $request->all();     
-        Mail::to($request->email)->send(new Reply_SendMail($data));
+        Mail::to($request->email)->send(new Reply_SendMail($data,$user));
         Mail::to(Auth::user()->email)->send(new Reply_User_SendMail($data));
         $tt=Timetable::find($request->id);
         $tt->mail_flg = $tt->mail_flg+1;
@@ -170,7 +170,7 @@ class TimetableController extends Controller
         $data->flg =2;
         $data->save(); 
         
-        return view('cancel.complete');
+        return view('cancel.complete',compact('user'));
     }
 
     public function cancel_sample(){

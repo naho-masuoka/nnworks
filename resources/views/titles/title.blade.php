@@ -53,10 +53,10 @@ if (file_exists(asset('files/'.$user->pc))) {
                         {{ csrf_field() }}
                         <div class="form-group"><input type="hidden" name="id" class="form-control"></div>
                         <div class="form-group"><input type="hidden" name="user_id" class="form-control" required value="{{ Auth::user()->id }}"></div>
-                        <div class="form-group"><input type="text" name="name" class="form-control" required></div>
+                        <div class="form-group"><input type="text" name="name" class="form-control u-input" required></div>
                         <div class="modal-footer">
-                            <button type="submit" id="btn" class="btn btn-primary" onClick="go_submit()">登録</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>                            
+                            <button type="submit" id="btn" class="btn btn-c" onClick="go_submit()">登録</button>
+                            <button type="button" class="btn btn-b" data-dismiss="modal">閉じる</button>                            
                         </div>
                     </form> 
                 </div>

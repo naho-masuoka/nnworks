@@ -8,7 +8,7 @@
           @csrf
       <div class="form-item">
         <label for="email"></label>
-        <input id="email" type="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" autocomplete="email" placeholder="Email Address" autofocus>
+        <input id="email" type="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email Address" autofocus>
         @error('email')
           <span class="invalid-feedback" role="alert">
               <strong>{{ $message }}</strong>
@@ -17,7 +17,7 @@
       </div>
       <div class="form-item">
         <label for="password"></label>
-        <input id="password" type="password" class="@error('password') is-invalid @enderror" name="password" placeholder="パスワード" required pattern="(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)[a-zA-Z\d]{8,}" autocomplete="current-password">
+        <input id="password" type="password" class="@error('password') is-invalid @enderror" name="password" placeholder="パスワード" required autocomplete="current-password">
           @error('password')
               <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>

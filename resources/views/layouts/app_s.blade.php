@@ -23,7 +23,8 @@
 </head>
 <body>
     <div id="app">
-            <img class="d-block mx-auto" style="width:90%;" src="{{asset('images/top.svg')}}">
+    <img class="pc" src="{{ asset('files/default/pc-dummy.png') }}" style="width:100%;">
+    <img class="sp" src="{{ asset('files/default/sp-dummy.png') }}" style="width:100%;">
         <main>
             @yield('content')
         </main>
