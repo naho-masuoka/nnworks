@@ -75,8 +75,8 @@ if (file_exists(asset('files/'.Auth::user()->sp))) {
         </div>
         <hr>
         <div class="d-flex justify-content-around align-items-center">
-        <a href="/cancel_sample" class="p-2 btn-c"></i>&nbsp;キャンセルはこちら&nbsp;<i class="fas fa-angle-right"></i></a>
-            <a href="/cancel_rejection_sample" class="p-2 btn-c">&nbsp;当日キャンセルはこちら&nbsp;<i class="fas fa-angle-right"></i></a>
+        <a href="/cancel_sample" class="p-2 btn-c u_color"></i>&nbsp;キャンセルはこちら&nbsp;<i class="fas fa-angle-right"></i></a>
+            <a href="/cancel_rejection_sample" class="p-2 btn-c u_color">&nbsp;当日キャンセルはこちら&nbsp;<i class="fas fa-angle-right"></i></a>
         </div>
         
         <hr>
@@ -85,16 +85,32 @@ if (file_exists(asset('files/'.Auth::user()->sp))) {
             <input type="text" name="signature" class="form-control u-input" value="{{ Auth::user()->signature }}">
         </div>
         <div class="form-group">
-            <button type="submit" class="form-control btn-c" onClick="go_submit()">送信</button>
+            <button type="submit" class="form-control btn-c u_color" onClick="go_submit()">送信</button>
         </div>    
     </form>
     <br><br><br>
 </div>
-
-    <script>
-        function go_submit(){
-            document.Form.submit();
+<style>
+        .u_color{
+            background-color:{{$user->bg}}; 
+            color:{{$user->font}};
         }
-    </script>
+        .u_color a{ 
+            color:{{$user->font}};
+        }
+        .mytitle{
+            padding: 0.2rem 0;/*上下の余白*/
+            width:100%;
+            text-align:center;
+            }
+        .mytitle li a{
+            color:{{$user->font}};
+        }
+</style>
+<script>
+    function go_submit(){
+        document.Form.submit();
+    }
+</script>
 
 @endsection

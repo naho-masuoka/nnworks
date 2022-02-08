@@ -57,7 +57,7 @@
                 <p class="horiday">{{ $d['holiday'] }}</p>
                     @foreach($rs as $r)                     
                         @if($r->flg == null)
-                        <button type="button" class="btn badge badge-amairo" data-toggle="modal" data-target="#Modal" onclick="getId(this);" value="{{ $r }}">           
+                        <button type="button" class="btn badge u_color" data-toggle="modal" data-target="#Modal" onclick="getId(this);" value="{{ $r }}">           
                         {{date('H:i',strtotime($r->start))}}</button>
                         @endif
                     @endforeach
@@ -99,7 +99,7 @@
                             <textarea name ="memo" class="form-control u-input" rows="3"></textarea>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" id="btn" class="btn btn-c" onClick="go_submit()">申込</button>
+                            <button type="submit" id="btn" class="btn btn-c u_color" onClick="go_submit()">申込</button>
                             <button type="button" class="btn btn-b" data-dismiss="modal">閉じる</button>                            
                         </div>
                     </form> 
@@ -131,6 +131,13 @@
     }
     </script>
     <style>
+        .u_color{
+            background-color:{{$user->bg}}; 
+            color:{{$user->font}};
+        }
+        .u_color a{
+            color:{{$user->font}};
+        }
     .mytitle{
         padding: 0.2rem 0;/*上下の余白*/
         width:100%;

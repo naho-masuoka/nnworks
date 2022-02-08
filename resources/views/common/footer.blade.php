@@ -1,11 +1,11 @@
 
 <footer class="footer navbar fixed-bottom d-flex justify-content-around align-items-center mytitle u_color">
     @auth 
-        <a href="/home/{{ Auth::user()->url }}"><i class="fas fa-home fa-fw"></i></a>
-        <a href="/time_table"><i class="far fa-calendar-alt fa-fw"></i></a>
-        <a href="/title"><i class="far fa-file-alt fa-fw"></i></a>
-        <a href="{{ route('users') }}"><i class="fas fa-user-cog fa-fw"></i></a>
-        <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="fas fa-times fa-fw"></i></a>
+        <a href="/home/{{ Auth::user()->url }}"><i class="fas fa-home fa-fw fa-lg"></i></a>
+        <a href="/time_table"><i class="far fa-calendar-alt fa-fw fa-lg"></i></a>
+        <a href="/title"><i class="far fa-file-alt fa-fw fa-lg"></i></a>
+        <a href="{{ route('users') }}"><i class="fas fa-user-cog fa-fw fa-lg"></i></a>
+        <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="fas fa-times fa-fw fa-lg"></i></a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
                 <input type="hidden" name="url" value="{{ Auth::user()->url }}">
