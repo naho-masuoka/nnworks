@@ -15,7 +15,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('error/{code}', function ($code) {
+    abort($code);
+  });
+  
 Route::get('/home/{user_url}', 'ContactController@index')->name('user_top');
 
 Route::post('/reserve', 'TimetableController@reserve')->name('reserve');
