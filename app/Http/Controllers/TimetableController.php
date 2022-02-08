@@ -153,8 +153,8 @@ class TimetableController extends Controller
             //当日キャンセルは受付ない
             return view('cancel.rejection',compact('data'));
         }else{
-            $tt=Title::where('id',$data->title_id)->get();
-            $title =$tt[0]->name;   
+            $tt=Title::where('id',$data->title_id)->first();
+            $title =$tt->name;   
             return view('cancel.cancel',compact('data','title'));
         }
         
@@ -163,10 +163,10 @@ class TimetableController extends Controller
              
         $data=TimeTable::find($request->id);
         $user = User::where('id',$data->user_id)->first();  
-        $tt=Title::where('id',$data->title_id)->get();
-        $title =$tt[0]->name;
+        $tt=Title::where('id',$data->title_id)->first();  
+        $title =$tt->name;
         Mail::to($request->email)->send(new Cancel_SendMail($data,$title,$user));
-        Mail::to($user[0]->email)->send(new Cancel_User_SendMail($data,$title,$user));
+        Mail::to($user->email)->send(new Cancel_User_SendMail($data,$title,$user));
         $data->flg =2;
         $data->save(); 
         
