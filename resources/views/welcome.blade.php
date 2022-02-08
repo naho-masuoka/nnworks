@@ -36,6 +36,9 @@
                 </div>
             </div>
         </div>
+        <div class="button01" >
+            <a href="{{ route('login') }}" ontouchstart>ログインはこちら</a>
+        </div>
     </div> 
 
     <style>
@@ -76,7 +79,6 @@
             color: #fff;
             font-size: 15px;
             font-weight: 700;
-            
             transition: 0.3s;
             border-radius: 240px 15px 100px 15px / 15px 200px 15px 185px;
             }
@@ -90,11 +92,25 @@
             transform: rotate(45deg);
             }
 
-            .button01 a:hover {
+            .button01 a:active {
             text-decoration: none;
             background-color: #FF7878;
             }
-
+            .login a {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 0 auto;
+            padding: 1em 2em;
+            width: 200px;
+            color:black;
+            font-size: 15px;
+            font-weight: 700;
+            transition: 0.3s;
+            }
+            .login a:active {
+                background-color: #8DCACE;
+            }
             @media (min-width: 1200px) {
                 .mytop{
                     position: relative;
