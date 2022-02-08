@@ -15,7 +15,7 @@
         <img src="{{ asset('/images/thanks.svg') }}">
         <br><br><br><br>
         <div class="text-center">
-            <a href="" class="btn btn-primary m-2">TOPページへ</a><br><br><br><br>  
+            <a href="/" class="btn btn-primary m-2">TOPページへ</a><br><br><br><br>  
         </div>
     </div>
 @endsection

@@ -33,7 +33,7 @@ class Cancel_User_SendMail extends Mailable
     public function build()
     {
         return $this
-        ->from('example@example.com',$this->data['signature'])
+        ->from('example@example.com',$this->data['email_name'])
         ->subject($this->data['name'].'様が講座をキャンセルをしました。')
         ->view('emails.cancel.user_html')
         ->with(['data'=>$this->data,'title'=>$this->title]);

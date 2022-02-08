@@ -37,7 +37,7 @@ class Cancel_SendMail extends Mailable
         ];
         
         return $this
-        ->from('works@schduler.com',$this->data['signature'])
+        ->from('works@schduler.com',$this->data['email_name'])
         ->subject($this->data['name'].'様　キャンセルを承りました。')
         ->view('emails.cancel.html')
         ->with(['data'=>$this->data, 'title'=>$this->title, 'param'=>encrypt($param)]);

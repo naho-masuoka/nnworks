@@ -36,7 +36,7 @@ class Reply_SendMail extends Mailable
             'email' => $this->data['email'],
         ];
         return $this
-        ->from('works@schduler.com',$this->data['signature'])
+        ->from('works@schduler.com',$this->data['email_name'])
         ->subject($this->data['subject'])
         ->view('emails.reply.html')
         ->with(['data'=>$this->data,'user'=>$this->user,'param'=>encrypt($param)]);

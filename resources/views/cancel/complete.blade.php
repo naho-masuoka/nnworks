@@ -14,8 +14,7 @@
         <br><br><br><br>
         <hr>
         <div class="text-center">
-            <a href="/" class="btn btn-primary m-2">TOPページへ</a>
-            
+            <a href="/home/{{$user->url}}" class="btn btn-primary m-2">TOPページへ</a>
         </div>
     </div>
 @endsection

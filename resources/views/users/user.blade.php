@@ -39,7 +39,10 @@ if (file_exists(asset('files/'.$user->pc))) {
             <label>Email</label>
             <input type="text" name="email" class="form-control u-input" required value="{{ $user->email }}">
         </div>
-        
+        <div class="form-group">
+            <label>Email</label>
+            <input type="text" name="email_name" class="form-control u-input" required value="{{ $user->email_name }}">
+        </div>
         <div class="form-group">
             <label>Mailを送る際に使用する署名</label>
             <input type="text" name="signature" class="form-control u-input" required placeholder="Mailの署名" value="{{ $user->signature }}">

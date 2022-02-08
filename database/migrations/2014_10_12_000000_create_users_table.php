@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('email_name')->default('Works Scheduler');
             $table->string('signature');
             $table->string('url')->unique();
             $table->string('hp')->nullable();

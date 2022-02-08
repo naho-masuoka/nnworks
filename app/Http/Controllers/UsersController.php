@@ -41,6 +41,7 @@ class UsersController extends Controller
         }
         $user->name=$request->name;
         $user->email=$request->email;
+        $user->email_name=$request->email_name;
         $user->signature=$request->signature;
         $user->hp=$request->hp;
         $user->blog=$request->blog;

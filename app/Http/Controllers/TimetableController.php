@@ -162,7 +162,7 @@ class TimetableController extends Controller
     public function cancel_complete(Request $request){
              
         $data=TimeTable::find($request->id);
-        $user = User::where('id',$data->user_id)->get();  
+        $user = User::where('id',$data->user_id)->first();  
         $tt=Title::where('id',$data->title_id)->get();
         $title =$tt[0]->name;
         Mail::to($request->email)->send(new Cancel_SendMail($data,$title));
