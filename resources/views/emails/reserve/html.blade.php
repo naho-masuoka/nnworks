@@ -25,7 +25,7 @@
         ※当日のキャンセルの場合は直接ご連絡下さい。      
     </p>
     <div style="text-align:center">
-        <a href="http://wsworks.herokuapp.com/cancel/?param={!! $param !!}" style="background-color:{{$user['bg']}};color:{{$user['font']}};font-size:15px;border-radius:10px;padding:10px 10px;text-decoration:none;">
+        <a href="http://nnworks.herokuapp.com///cancel/?param={!! $param !!}" style="background-color:{{$user['bg']}};color:{{$user['font']}};font-size:15px;border-radius:10px;padding:10px 10px;text-decoration:none;">
         キャンセル
         </a>        
     </div>
