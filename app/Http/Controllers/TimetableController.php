@@ -100,7 +100,7 @@ class TimetableController extends Controller
             $data = Timetable::find($request->id); 
             $user = User::where('id',$data->user_id)->first();   
             Mail::to($request->email)->send(new Reserve_SendMail($data,$user));
-            Mail::to($user->email)->send(new Reserve_User_SendMail($data));
+            Mail::to($user->email)->send(new Reserve_User_SendMail($data,$user));
         return view('reserve.thanks',compact('request','user'));
     }
 
@@ -126,7 +126,7 @@ class TimetableController extends Controller
         //mail送信
         $data = $request->all();     
         Mail::to($request->email)->send(new Reply_SendMail($data,$user));
-        Mail::to(Auth::user()->email)->send(new Reply_User_SendMail($data));
+        Mail::to(Auth::user()->email)->send(new Reply_User_SendMail($data,$user));
         $tt=Timetable::find($request->id);
         $tt->mail_flg = $tt->mail_flg+1;
         $tt->save();
@@ -165,8 +165,8 @@ class TimetableController extends Controller
         $user = User::where('id',$data->user_id)->first();  
         $tt=Title::where('id',$data->title_id)->get();
         $title =$tt[0]->name;
-        Mail::to($request->email)->send(new Cancel_SendMail($data,$title));
-        Mail::to($user[0]->email)->send(new Cancel_User_SendMail($data,$title));
+        Mail::to($request->email)->send(new Cancel_SendMail($data,$title,$user));
+        Mail::to($user[0]->email)->send(new Cancel_User_SendMail($data,$title,$user));
         $data->flg =2;
         $data->save(); 
         

@@ -13,15 +13,17 @@ class Cancel_SendMail extends Mailable
 
     protected $data;
     protected $title;
+    protected $user;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($data,$title)
+    public function __construct($data,$title,$user)
     {    
         $this->data = $data;
         $this->title = $title;
+        $this->user = $user;
     }
 
     /**
@@ -37,7 +39,7 @@ class Cancel_SendMail extends Mailable
         ];
         
         return $this
-        ->from('works@schduler.com',$this->data['email_name'])
+        ->from('works@schduler.com',$this->user['email_name'])
         ->subject($this->data['name'].'様　キャンセルを承りました。')
         ->view('emails.cancel.html')
         ->with(['data'=>$this->data, 'title'=>$this->title, 'param'=>encrypt($param)]);
