@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="form-wrapper">
-  <h1>新規登録</h1>
+  <h1 style="padding:0 0;">新規登録</h1>
   <form method="POST" action="{{ route('register') }}">
     @csrf
     <div class="form-item">
@@ -49,7 +49,7 @@
       <input id="btnSubmit" type="submit" class="button" title="Start" value="Start"></input>
     </div>
   </form>
-  <div class="form-footer">
+  <div class="form-footer" style="padding-top:0;padding-bottom:5px;margin-bottom:0;">
     <p><a href="{{ route('login') }}"><i class="far fa-bell"></i>ログインはこちら</a></p>
   </div>
 </div>
