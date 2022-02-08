@@ -9,6 +9,8 @@ use App\Title;
 use App\User;
 use Yasumi\Yasumi;
 use App\Library\Calendar;
+
+
 use Auth;
 use Mail;
 use App\Mail\Reserve_SendMail;

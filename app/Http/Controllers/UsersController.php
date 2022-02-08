@@ -8,6 +8,9 @@ use App\User;
 use Auth;
 use InterventionImage;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\File;
+use Illuminate\Http\UploadedFile;
+use Intervention\Image\Facades\Image;
 
 class UsersController extends Controller
 {
@@ -20,27 +23,34 @@ class UsersController extends Controller
         $pc=null;
         $sp=null;
         $user=User::find(Auth::user()->id);
-            
+        $filepath=storage_path('app\\public\\files\\');
+        
         if($request->has('pc')){
             
-            Storage::disk('public')->delete('/files/'.$user->pc);
+            if(file_exists($filepath.$user->pc) == true){
+                unlink($filepath.'/'.$user->pc);
+            }
             $file = $request->file('pc');
             $extension= $file->getClientOriginalExtension();        
             $pc=$user->id .'_pcheader.'.$extension;
             InterventionImage::make($file)
                 ->fit(1200, 300, function ($constraint) {$constraint->aspectRatio();})
-                ->save(public_path('/files/' . $pc));
+                ->save($filepath. '/'.$pc);
         }
         if($request->has('sp')){
-            Storage::delete('/files/'.$user->sp);           
-            Storage::disk('public')->delete('/files/'.$user->sp);
+            
+            if(file_exists($filepath.$user->sp) == true){
+                unlink($filepath.'/'.$user->sp);
+            }
             $file = $request->file('sp');
-            $extension= $file->getClientOriginalExtension();
-            $sp=$user->id .'_spheader.'.$extension;
+            $extension= $file->getClientOriginalExtension();                
+            $sp= $user->id .'_spheader.'.$extension;
             InterventionImage::make($file)
-                ->fit(450, 150, function ($constraint) {$constraint->aspectRatio();})
-                ->save(public_path('/files/' . $sp));
+                ->fit( 450, 150, function ($constraint) {$constraint->aspectRatio();})
+                ->save($filepath. '/'.$sp);
         }
+
+
         $user->name=$request->name;
         $user->email=$request->email;
         $user->email_name=$request->email_name;

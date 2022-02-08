@@ -1,18 +1,18 @@
 <?php
     $f=$ymd[0]['day']->format('w');
     $i = 0;
-if ($user->pc == null) {
-    $pc_file=asset('files/default/pc-dummy.png');
-}else{
-    $pc_file=asset('files/'.$user->pc);
-}
-
-if ($user->sp == null) {
-    $sp_file=asset('files/default/sp-dummy.png');
-        
-}else{
-    $sp_file=asset('files/'.$user->sp);
-}
+    if ($user->pc == null) {
+        $pc_file=asset('/images/pc-dummy.png');
+    }else{
+        $pc_file=asset('/storage/files/'.$user->pc);
+    }
+    
+    if ($user->sp == null) {
+        $sp_file=asset('/images/sp-dummy.png');
+            
+    }else{
+        $sp_file=asset('/storage/files/'.$user->sp);
+    }
 ?>
 @extends('layouts.app')
 @section('content')

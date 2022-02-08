@@ -1,15 +1,15 @@
 <?php
 if ($user->pc == null) {
-    $pc_file=asset('files/default/pc-dummy.png');
+    $pc_file=asset('/images/pc-dummy.png');
 }else{
-    $pc_file=asset('files/'.$user->pc);
+    $pc_file=asset('/storage/files/'.$user->pc);
 }
 
 if ($user->sp == null) {
-    $sp_file=asset('files/default/sp-dummy.png');
+    $sp_file=asset('/images/sp-dummy.png');
         
 }else{
-    $sp_file=asset('files/'.$user->sp);
+    $sp_file=asset('/storage/files/'.$user->sp);
 }
 ?>
 @extends('layouts.app')
@@ -93,7 +93,7 @@ if ($user->sp == null) {
             <div class="form-group" style="width:47%;">
                 <div class="card" style="width:100%;">
                     @if($user->pc <> null)                                 
-                    <img src="{{ asset('files/'.Auth::user()->pc) }}" style="width:100%;">
+                    <img src="{{ asset('/storage/files/'.Auth::user()->pc) }}" style="width:100%;">
                
                     @else
                         <img src="">
@@ -103,7 +103,7 @@ if ($user->sp == null) {
             <div class="form-group" style="width:47%;">
                 <div class="card" style="width:100%;">
                     @if($user->sp <> null)                                 
-                    <img src="{{ asset('files/'.Auth::user()->sp) }}" style="width:100%;">                    
+                    <img src="{{ asset('/storage/files/'.Auth::user()->sp) }}" style="width:100%;">                    
                     @else
                         <img src="">
                     @endif
