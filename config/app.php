@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'H_Works'),
+    'name' => env('APP_NAME', 'Works Scheduler'),
 
     /*
     |--------------------------------------------------------------------------
