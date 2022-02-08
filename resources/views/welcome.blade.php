@@ -27,18 +27,16 @@
         <div class="card">
             <img src="{{asset('images/top.svg')}}"> 
             <div class="card-body">
-                <h5 class="card-title">Work Schduler</h5>
+                <h3 class="card-title">Work Schduler</h3>
                 <p class="card-text">予約管理<br>
                     自動メール送信<br>
                     が作成できるスケジューラーです！</p>
-                <div class="button01" >
-                    <a href="{{ route('register') }}">さぁ 始めよう !</a>
+                <div class="d-flex button01" >
+                    <a href="{{ route('register') }}" ontouchstart>さぁ 始めよう !</a>
+                    <a href="{{ route('login') }}" ontouchstart>ログインはこちら</a>
                 </div>
             </div>
-        </div>
-        <div class="button01" >
-            <a href="{{ route('login') }}" ontouchstart>ログインはこちら</a>
-        </div>
+        </div>       
     </div> 
 
     <style>
@@ -96,21 +94,7 @@
             text-decoration: none;
             background-color: #FF7878;
             }
-            .login a {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            margin: 0 auto;
-            padding: 1em 2em;
-            width: 200px;
-            color:black;
-            font-size: 15px;
-            font-weight: 700;
-            transition: 0.3s;
-            }
-            .login a:active {
-                background-color: #8DCACE;
-            }
+            
             @media (min-width: 1200px) {
                 .mytop{
                     position: relative;
