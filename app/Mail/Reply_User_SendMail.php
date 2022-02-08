@@ -30,7 +30,7 @@ class Reply_User_SendMail extends Mailable
     public function build()
     {
         return $this
-        ->from('example@example.com',$this->data['signature'])
+        ->from('works@schduler.com',$this->data['signature'])
         ->subject($this->data['name'].'様へ送信したメール 件名:' .$this->data['subject'])
         ->view('emails.reply.user_html')
         ->with('data', $this->data);

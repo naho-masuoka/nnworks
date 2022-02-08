@@ -37,7 +37,7 @@ class Reserve_SendMail extends Mailable
         ];
         
         return $this
-        ->from('example@example.com',$this->data['signature'])
+        ->from('works@schduler.com',$this->data['signature'])
         ->subject($this->data['name'].'様　受付完了致しました。')
         ->view('emails.reserve.html')
         ->with(['data'=>$this->data,'user'=>$this->user,  'param'=>encrypt($param)]);

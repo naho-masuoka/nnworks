@@ -30,7 +30,7 @@ class Reserve_User_SendMail extends Mailable
     public function build()
     {
         return $this
-        ->from('example@example.com',$this->data['signature'])
+        ->from('works@schduler.com',$this->data['signature'])
         ->subject($this->data['name'].'様より予約を受付ました。')
         ->view('emails.reserve.user_html')
         ->with('data', $this->data);
