@@ -23,31 +23,30 @@ class UsersController extends Controller
         $pc=null;
         $sp=null;
         $user=User::find(Auth::user()->id);
-        $filepath=storage_path('app\\public\\files\\');
+        $filepath=storage_path('files\\');
         
         if($request->has('pc')){
             
             if(file_exists($filepath.$user->pc) == true){
-                unlink($filepath.'/'.$user->pc);
+                unlink($filepath . $user->pc);
             }
             $file = $request->file('pc');
             $extension= $file->getClientOriginalExtension();        
             $pc=$user->id .'_pcheader.'.$extension;
             InterventionImage::make($file)
                 ->fit(1200, 300, function ($constraint) {$constraint->aspectRatio();})
-                ->save($filepath. '/'.$pc);
+                ->save($filepath.$pc);
         }
         if($request->has('sp')){
-            
             if(file_exists($filepath.$user->sp) == true){
-                unlink($filepath.'/'.$user->sp);
+                unlink($filepath . $user->sp);
             }
             $file = $request->file('sp');
             $extension= $file->getClientOriginalExtension();                
             $sp= $user->id .'_spheader.'.$extension;
             InterventionImage::make($file)
                 ->fit( 450, 150, function ($constraint) {$constraint->aspectRatio();})
-                ->save($filepath. '/'.$sp);
+                ->save($filepath . $sp);
         }
 
 
