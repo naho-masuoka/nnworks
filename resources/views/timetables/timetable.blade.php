@@ -1,20 +1,22 @@
 <?php
-if (file_exists(asset('files/'.$user->pc))) {
-        $pc_file=asset('files/'.$user->pc);
+if ($user->pc == null) {
+    $pc_file=asset('files/default/pc-dummy.png');
+}else{
+    $pc_file=asset('files/'.$user->pc);
+}
+
+if ($user->sp == null) {
+    $sp_file=asset('files/default/sp-dummy.png');
+        
     }else{
-        $pc_file=asset('files/default/pc-dummy.png');
-    }
-    if (file_exists(asset('files/'.$user->sp))) {
         $sp_file=asset('files/'.$user->sp);
-    }else{
-        $sp_file=asset('files/default/sp-dummy.png');
     }
 ?>
 @extends('layouts.app')
 @section('content')
 
 <img class="pc" src="{{ $pc_file }}" style="width:100%;">
-<img class="sp" src="{{ $sp_file }}" style="width:100%;">
+<img class="sp" src="{{ $sp_file }}" style="width:100%;height:150px;">
 <div class="d-flex justify-content-around align-items-center mytitle u_color mb-4">            
     <div><a href="?day={{ $prev }}" style="color:white;">{{ $prev->format('n月') }}<i class="fas fa-arrow-left ml-2"></i></a></div>
     <div><h4 class="pt-2">{{$start->format('Y年n月')}}</h4></div>

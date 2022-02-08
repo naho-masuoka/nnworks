@@ -1,14 +1,16 @@
 <?php
-if (file_exists(asset('files/'.$user->pc))) {
-        $pc_file=asset('files/'.$user->pc);
-    }else{
-        $pc_file=asset('files/default/pc-dummy.png');
-    }
-    if (file_exists(asset('files/'.$user->sp))) {
-        $sp_file=asset('files/'.$user->sp);
-    }else{
-        $sp_file=asset('files/default/sp-dummy.png');
-    }
+if ($user->pc == null) {
+    $pc_file=asset('files/default/pc-dummy.png');
+}else{
+    $pc_file=asset('files/'.$user->pc);
+}
+
+if ($user->sp == null) {
+    $sp_file=asset('files/default/sp-dummy.png');
+        
+}else{
+    $sp_file=asset('files/'.$user->sp);
+}
 ?>
 @extends('layouts.app')
 @section('content')

@@ -22,6 +22,7 @@ class UsersController extends Controller
         $user=User::find(Auth::user()->id);
             
         if($request->has('pc')){
+            
             Storage::disk('public')->delete('/files/'.$user->pc);
             $file = $request->file('pc');
             $extension= $file->getClientOriginalExtension();        
@@ -31,12 +32,13 @@ class UsersController extends Controller
                 ->save(public_path('/files/' . $pc));
         }
         if($request->has('sp')){
+            Storage::delete('/files/'.$user->sp);           
             Storage::disk('public')->delete('/files/'.$user->sp);
             $file = $request->file('sp');
             $extension= $file->getClientOriginalExtension();
             $sp=$user->id .'_spheader.'.$extension;
             InterventionImage::make($file)
-                ->resize(470, 200, function ($constraint) {$constraint->aspectRatio();})
+                ->fit(450, 150, function ($constraint) {$constraint->aspectRatio();})
                 ->save(public_path('/files/' . $sp));
         }
         $user->name=$request->name;
