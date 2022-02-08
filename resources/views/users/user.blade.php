@@ -40,7 +40,7 @@ if (file_exists(asset('files/'.$user->pc))) {
             <input type="text" name="email" class="form-control u-input" required value="{{ $user->email }}">
         </div>
         <div class="form-group">
-            <label>Email</label>
+            <label>Emailの表示名</label>
             <input type="text" name="email_name" class="form-control u-input" required value="{{ $user->email_name }}">
         </div>
         <div class="form-group">
