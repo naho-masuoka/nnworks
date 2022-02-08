@@ -17,6 +17,11 @@
 <body>
     <h1> {{$data['name']}}様</h1>
     <p> {!! nl2br(e($data['body'])) !!}<br>
+    <p>
+        講座開催場所:<br>
+        {{ $data['place'] }}<br>
+        {{ $data['shop_name'] }}<br>
+    </p>
         またキャンセルは下記よりお願い致します。
         <br><br>
         ※当日のキャンセルは担当者に直接ご連絡下さい。
@@ -26,12 +31,7 @@
         キャンセル
         </a>        
     </div>
-    <p>
-        講座開催場所:<br>
-        {{ $data['place'] }}<br>
-        {{ $data['shop_name'] }}<br>
-    </p>
-    <a href="{{ $data['mailmap'] }}">地図はこちら</a><br><br><br>
+   
     
     <p>{{$data['signature']}}</p>
 <body>

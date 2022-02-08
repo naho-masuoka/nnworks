@@ -23,8 +23,8 @@
 </head>
 <body>
     <div id="app">
-    <img class="pc" src="{{ asset('files/default/pc-dummy.png') }}" style="width:100%;">
-    <img class="sp" src="{{ asset('files/default/sp-dummy.png') }}" style="width:100%;">
+    <img class="pc" src="{{ asset('images/pc-dummy.png') }}" style="width:100%;">
+    <img class="sp" src="{{ asset('images/sp-dummy.png') }}" style="width:100%;">
         <main>
             @yield('content')
         </main>

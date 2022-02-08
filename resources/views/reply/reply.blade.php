@@ -35,19 +35,9 @@ if ($user->sp == null) {
         </div>
         <div class="form-group">
             <input type="text" name="place" id="place" class="form-control u-input" placeholder="住所" value="{{ $request['place'] }}" >
-            <input type="hidden" name="mailmap" id="mailmap" class="form-control" value="{{ $request['mailmap'] }}" >
-        </div>
+        </div>        
         <div class="form-group">
             <input type="text" name="shop_name" id="shop_name" value="{{ $request['shop_name'] }}" class="form-control u-input" placeholder="講座を開催する場所" >               
-        </div>
-        <div id="maparea">
-            @if($request['map'] == null)
-            <iframe name="map" id='map' width='98%' height='0px' frameborder='0'
-                    src='https://www.google.com/maps/embed/v1/place?key=AIzaSyBh70WNHgSZDtvTD_p2CAmrchrHXmB0M_I&q='>
-            @else
-                <iframe id='map' width='98%' height='200px' frameborder='0' src="{{ $request['map'] }}">
-            @endif
-            </iframe>
         </div>
         <div id="messagearea">
         <textarea style="display:none" name="map" class="form-control">
@@ -113,6 +103,4 @@ if ($user->sp == null) {
     function go_submit(){
         document.Form.submit();
     }
-</script>
-
 @endsection

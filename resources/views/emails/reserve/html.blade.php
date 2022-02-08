@@ -21,8 +21,7 @@
         メッセージ<br>：{!! nl2br(e($data['memo'])) !!}
         <br><br>
         講座開催の場所等は後日ご連絡致します。<br>
-        キャンセルの場合は下記よりお願い致します。<br>
-        ※当日のキャンセルの場合は直接ご連絡下さい。      
+        キャンセルの場合は下記よりお願い致します。<br>      
     </p>
     <div style="text-align:center">
         <a href="http://nnworks.herokuapp.com///cancel/?param={!! $param !!}" style="background-color:{{$user['bg']}};color:{{$user['font']}};font-size:15px;border-radius:10px;padding:10px 10px;text-decoration:none;">

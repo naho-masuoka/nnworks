@@ -18,7 +18,7 @@
     @if($user->blog <> null)
         <a href="{{$user->blog}}"><i class="far fa-comment-dots fa-fw"></i>blog</a>
     @endif
-    <div><a href="{{ route('login') }}"><i class="fas fa-sign-in-alt fa-fw"></i></a>        
+    <div><a href="{{ route('login') }}"><i class="fas fa-sign-in-alt fa-fw"></i>ログイン</a>        
     @endauth
     <style>
         .u_color{
