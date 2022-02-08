@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\User;
+use Illuminate\Http\Request;
+
 class LoginController extends Controller
 {
     /*
@@ -18,7 +20,9 @@ class LoginController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
-
+    use AuthenticatesUsers {
+        logout as perLogout;
+    }
     use AuthenticatesUsers;
 
     /**
@@ -41,4 +45,10 @@ class LoginController extends Controller
         $url='home/'.$user->url;
         return redirect($url);
     }
+    public function logout(Request $request)
+{
+    $this->perLogout($request);
+    $url='home/'.$request->url;
+    return redirect($url);
+}
 }

@@ -25,7 +25,7 @@
           @enderror
       </div>
       <div class="button-panel">
-        <input type="submit" class="button" title="Go" value="Start"></input>
+        <input type="submit" class="button" title="Go" value="Start" ontouchstart></input>
       </div>
       <br><br>
     </form>

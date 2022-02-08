@@ -101,8 +101,8 @@ i {
   .pc { display: none !important; }
   .sp { display: block !important; }
 }
-.button:hover {
-  background: #f5f4e8;
+.button:active {
+  background-color: #FF7878;
 }
 
 .form-footer {

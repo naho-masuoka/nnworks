@@ -72,7 +72,7 @@
             justify-content: space-around;
             align-items: center;
             margin: 0 auto;
-            padding: 1em 2em;
+            padding: 1em 0.5em;
             width: 200px;
             color: #fff;
             font-size: 15px;
