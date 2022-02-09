@@ -23,30 +23,38 @@ class UsersController extends Controller
         $pc=null;
         $sp=null;
         $user=User::find(Auth::user()->id);
-        $filepath=storage_path('files\\');
+        $path = storage_path('app/public/files/');
         
-        if($request->has('pc')){
-            
-            if(file_exists($filepath.$user->pc) == true){
-                unlink($filepath . $user->pc);
+        if($request->has('pc')){            
+            if(file_exists($path.$user->pc) == true){
+                unlink($path.'/'.$user->pc);
             }
             $file = $request->file('pc');
             $extension= $file->getClientOriginalExtension();        
             $pc=$user->id .'_pcheader.'.$extension;
             InterventionImage::make($file)
-                ->fit(1200, 300, function ($constraint) {$constraint->aspectRatio();})
-                ->save($filepath.$pc);
+                ->fit( 1200, 300, function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                    }
+                )
+                ->save($path.$pc);
         }
         if($request->has('sp')){
-            if(file_exists($filepath.$user->sp) == true){
-                unlink($filepath . $user->sp);
+            
+            if(file_exists($path.$user->sp) == true){
+                unlink($path.'/'.$user->sp);
             }
             $file = $request->file('sp');
             $extension= $file->getClientOriginalExtension();                
             $sp= $user->id .'_spheader.'.$extension;
             InterventionImage::make($file)
-                ->fit( 450, 150, function ($constraint) {$constraint->aspectRatio();})
-                ->save($filepath . $sp);
+                ->fit( 450, 150, function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                    }
+                )
+                ->save($path.$sp);
         }
 
 
