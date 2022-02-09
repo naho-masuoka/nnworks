@@ -23,7 +23,7 @@ class UsersController extends Controller
         $pc=null;
         $sp=null;
         $user=User::find(Auth::user()->id);
-        $path = storage_path('app/public/files/');
+        $path = storage_path('public/files/');
         
         if($request->has('pc')){            
             if(file_exists($path.$user->pc) == true){
